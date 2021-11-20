@@ -10,7 +10,7 @@ class App extends Component{
     return (
       <div className="App">
         <NavBar />
-        <ItemListContainer />
+        <ItemListContainer greeting={'Hola, esto es una prueba del uso de la prop "greeting".'}/>
       </div>
     )
   }

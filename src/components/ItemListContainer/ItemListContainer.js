@@ -5,8 +5,8 @@ import './ItemListContainer.css'
 const ItemListContainer = ({greeting}) => {
     return (
         <div>
-            <p>Esto es una prueba del 'ItemListContainer'</p>
-            <p><ItemCount /></p>
+            <h1>{greeting}</h1>
+            <p><ItemCount stock={7} initial={0}/></p>
         </div>
     )
 }

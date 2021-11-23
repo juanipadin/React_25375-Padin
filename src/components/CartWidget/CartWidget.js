@@ -3,7 +3,7 @@ import './CartWidget.css'
 
 function CartWidget() {
     return (
-            <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png"></img>
+            <img className="img_carrito" src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png"></img>
     )
 }
 

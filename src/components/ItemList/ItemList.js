@@ -6,9 +6,12 @@ const ItemList = () => {
     const [items, setItems] = useState([])
 
     useEffect(()=>{
-        fetch('https://api.github.com/users')
-        .then((response) => response.json())
-        .then((json) => setItems(json))
+        const timer = setTimeout(() => {
+            fetch('https://api.github.com/users')
+            .then((response) => response.json())
+            .then((json) => setItems(json))
+        }, 2000);
+        return () => clearTimeout(timer)
     },[])
 
     return (

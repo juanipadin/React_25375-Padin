@@ -4,15 +4,15 @@
 	flex-direction: column;
 	align-items: center;
 	margin-left: 70px;
-	padding: 25px;
+	padding: 5px;
 }
 
 .CardItem {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	margin: 20px;
+	margin: 5px;
 }
 
 .CardItem img{
-	width: 100px;
+	width: 120px;
 }

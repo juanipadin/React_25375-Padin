@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ItemDetailContainer from './components/ItemDeatilContainer/ItemDetailContainer';
 
 /* COMPONENTS */
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -11,6 +12,7 @@ class App extends Component{
       <div className="App">
         <NavBar />
         <ItemListContainer greeting={'Hola, esto es una prueba del uso de la prop "greeting".'}/>
+        <ItemDetailContainer category='Kit de Reparación de Bicicleta'/>
       </div>
     )
   }

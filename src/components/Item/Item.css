@@ -1,0 +1,7 @@
+.Item{
+    width: 200px;
+    height: 200px;
+    border: 1px grey solid;
+    margin: 0px 20px;
+    padding: 20px;
+}

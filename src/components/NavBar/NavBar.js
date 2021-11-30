@@ -9,10 +9,10 @@ const NavBar = () =>{
             <nav>
                 <ul>
                     <h1>2Bike or not 2Bike</h1>
-                    <li><a href="#">Sobre Nosotros</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li>Sobre Nosotros</li>
+                    <li>Productos</li>
+                    <li>Servicios</li>
+                    <li>Contacto</li>
                     <li><CartWidget /></li>
                 </ul>
             </nav>

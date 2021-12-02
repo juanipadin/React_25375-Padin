@@ -4,7 +4,7 @@ import './CartWidget.css'
 function CartWidget() {
     return (
             <img className="img_carrito" 
-            src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" 
+            src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-campus-recreation-university-nebraska-lincoln-30.png" 
             alt="Imagen Carrito"></img>
     )
 }

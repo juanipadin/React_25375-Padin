@@ -1,15 +1,32 @@
-nav ul{
-    background-color: #eff170e7;
-    color: black;
-}
-ul{
-    text-align: center;
-}
-li{
-    display: inline;
-    padding: 7%;
+.Navigation{
+    display: flex;
+    background-color: rgb(1, 15, 36);
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
 }
 
-li:hover{
-    color: goldenrod
+.List-ul{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.List-ul li{
+    list-style-type: none;
+}
+
+.Link{
+    color: white;
+}
+
+.active{
+    background-color: rgb(131, 26, 0);
+    height: 1rem;
+}
+
+.img_logo img{
+    width: 50px;
+    height: 50px;
 }

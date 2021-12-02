@@ -1,26 +1,23 @@
 import React, { useEffect , useState} from 'react'
-/* import './ItemList.css' */
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
-const ItemDetailContainer = ( { category } ) => {
+const ItemDetailContainer = () => {
     const [items, setItems] = useState([])
+    const params = useParams()
 
     useEffect(()=>{
         setTimeout(() => {
-            fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${category}&limit=1`)
+            fetch(`https://api.mercadolibre.com/items/${params.id}`)
                 .then((response) => response.json())
-                .then((json) => {console.log(json.results); setItems(json.results)})
+                .then((json) => {setItems(json)})
         }, 2000);
-    },[category])
+    },[])
 
     return (
-        <div className='CardContainer'>
-            <div className='CardItem'>
-                {items.map((item) => {
-                    return <ItemDetail item={item} key={item.id}/>
-                })}
+            <div>
+                {<ItemDetail item={items}/>}
             </div>
-        </div>
     )
 }
 

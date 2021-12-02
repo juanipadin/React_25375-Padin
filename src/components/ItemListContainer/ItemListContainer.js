@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = ({category}) => {
+const ItemListContainer = ({categoryId}) => {
     const [items, setItems] = useState([])
 
     useEffect(()=>{
         setTimeout(() => {
-            fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${category}&limit=4`)
+            fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${categoryId}&limit=4`)
                 .then((response) => response.json())
-                .then((json) => {console.log(json.results); setItems(json.results)})
+                .then((json) => { setItems(json.results) })
         }, 2000);
-    },[category])
+    },[categoryId])
 
     return (
         <div>
-            <h1>{category}</h1>
+            <h1>{categoryId}</h1>
             <ItemList items={items}/>
         </div>
     )

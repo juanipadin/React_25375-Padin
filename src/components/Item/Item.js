@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react'
 import './Item.css'
 
 const Item = ({item}) => (
+    <Link to={`/item/${item.id}`}>
     <Card className="Item">
         <Image src={item.thumbnail} wrapped ui={false} />
         <Card.Content>
@@ -15,6 +17,7 @@ const Item = ({item}) => (
         </Card.Description>
         </Card.Content>
     </Card>
+    </Link>
 )
 
 export default Item

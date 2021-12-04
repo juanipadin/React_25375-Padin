@@ -1,25 +1,31 @@
 import React, {useState} from 'react'
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, changeButton, onAdd}) => {
 
     const [counter, setCounter] = useState(initial)
     
-    const onAdd = ()=>{
+    const sumItem = ()=>{
         if (counter < stock){
             setCounter(counter + 1)
         }
     }
-    const onRemove = ()=>{
+    const removeItem = ()=>{
         if (counter > 0){
             setCounter(counter - 1)
         }
     }
 
+    const handleOnAdd = () =>{
+        onAdd(counter)
+        setCounter(initial)
+    }
+
     return (
         <div>
             <p>{counter}</p>
-            <button onClick={onAdd}>Agregar Producto</button>
-            <button onClick={onRemove}>Quitar Producto</button>
+            <button onClick={sumItem}>Agregar Producto</button>
+            <button onClick={removeItem}>Quitar Producto</button>
+            { !changeButton && <button onClick={handleOnAdd}>Agregar</button>}
         </div>
     )
 }

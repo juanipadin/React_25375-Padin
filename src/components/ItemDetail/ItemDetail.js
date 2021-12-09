@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 import {Link} from 'react-router-dom'
+import { useCartContext } from '../../context/CartContext';
 
 
 const ItemDetail = ( {item} ) => {
     const [changeButton, setChangeButton] = useState(false);
+    const {addToCart} = useCartContext();
 
     const onAdd = (quantity) =>{
+        addToCart(item, quantity)
         setChangeButton(true)
         alert(`Ud. Agregó a su Carrito la cantidad de ${quantity} productos`)
     }

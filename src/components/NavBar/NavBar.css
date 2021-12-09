@@ -18,7 +18,18 @@
 }
 
 .Link{
-    color: white;
+    width: 200px;
+    border: 1px solid #e2c043;
+    padding: 10px ;
+    background-color: #e2c043;
+    color: white !important;
+    border-radius: 10px;
+    transition: 0.5s
+}
+
+.Link:hover{
+    border: 1px solid #a7b46e;
+    background-color: #a7b46e;
 }
 
 .active{

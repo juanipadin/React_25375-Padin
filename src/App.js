@@ -10,6 +10,7 @@ import NavBar from './components/NavBar/NavBar';
 /* VIEWS */
 import Category from './views/Category';
 import Home from './views/Home';
+import CartContextProvider from './context/CartContext';
 
 
 /* VER EN LA LINEA 25 QUE MANDAR COMO PARÁMETRO */
@@ -18,6 +19,7 @@ class App extends Component{
   render() {
     return (
       <div className="App">
+      <CartContextProvider>
         <Router>
             <NavBar/>
                 <Routes>
@@ -26,6 +28,7 @@ class App extends Component{
                 <Route path="/item/:id" element={<ItemDetailContainer/>}/>
                 </Routes>
         </Router>
+      </CartContextProvider>
 
         
         

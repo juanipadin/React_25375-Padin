@@ -31,11 +31,11 @@ const Cart = () => {
                         <Table.Cell>{item.map(prod => <p><img alt={prod.item.thumbnail} src={(prod.item.thumbnail === "") ? imageNotAvailable : prod.item.thumbnail}/></p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod => <p key={prod.item.id}> {prod.item.title.slice(0,50)}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod =><p>{prod.quantity}</p>)}</Table.Cell>
-                        <Table.Cell>{item.map(prod =><p>AR$ {prod.item.price * prod.quantity}</p>)}</Table.Cell>
+                        <Table.Cell>{item.map(prod =><p>AR$ {Number(prod.item.price * prod.quantity).toLocaleString()}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod => <p><Button onClick={() => removeItem(prod.item.id)}>Borrar Item</Button></p>)}</Table.Cell>
                     </Table.Row>
                 </Table.Body>
-                <div><p>Su compra fue por un total de AR$ {totalPrice()}</p></div>
+                <div><p>Su compra fue por un total de AR$ {Number(totalPrice().toLocaleString())}</p></div>
                 <Button primary onClick={() => clear()}>Borrar todos los Productos</Button>
                 <Link to='/'><Button primary>Continuar Comprando</Button></Link>
             </Table>

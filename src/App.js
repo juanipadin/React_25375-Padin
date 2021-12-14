@@ -11,6 +11,7 @@ import NavBar from './components/NavBar/NavBar';
 import Category from './views/Category';
 import Home from './views/Home';
 import CartContextProvider from './context/CartContext';
+import Cart from './components/Cart/Cart';
 
 
 /* VER EN LA LINEA 25 QUE MANDAR COMO PARÁMETRO */
@@ -26,6 +27,7 @@ class App extends Component{
                 <Route path="/" element={<Home/>}/>
                 <Route path="/category/:categoryId" element={<Category/>}/>
                 <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+                <Route path="/cart" element={<Cart/>}/>
                 </Routes>
         </Router>
       </CartContextProvider>

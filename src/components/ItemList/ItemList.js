@@ -5,11 +5,11 @@ import Item from '../Item/Item';
 const ItemList = ( { items } ) => {
 
     return (
-        <div className='CardContainer'>
-            <div className='CardItem'>
-                {items.map((item) => {
-                    return <Item item={item} key={item.id}/>
-                })}
+        <div className="CardContainer">
+            <div className="CardItem">
+                    {items.map((item) => {
+                        return <Item item={item} key={item.id}/>
+                    })}
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 import {Link} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
+import { Button } from 'semantic-ui-react'
 
 
 const ItemDetail = ( {item} ) => {
@@ -22,7 +23,8 @@ const ItemDetail = ( {item} ) => {
             <h4>AR$ {Number(item.price).toLocaleString()}</h4>
             <div>
                 {!changeButton && <ItemCount stock={7} initial={0} onAdd={onAdd} changeButton={changeButton}/>}
-                {changeButton && <Link to='/cart'><button>Finalizar la Compra</button></Link>}
+                <Link to='/'><Button primary>Continuar Comprando</Button></Link>
+                {changeButton && <Link to='/cart'><Button primary>Finalizar la Compra</Button></Link>}
             </div>
             
         </div>

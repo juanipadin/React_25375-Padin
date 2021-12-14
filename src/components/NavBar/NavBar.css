@@ -28,13 +28,12 @@
 }
 
 .Link:hover{
-    border: 1px solid #a7b46e;
-    background-color: #a7b46e;
+    border: 1px solid rgb(131, 26, 0);
+    background-color: rgb(131, 26, 0);
 }
 
 .active{
     background-color: rgb(131, 26, 0);
-    height: 1rem;
 }
 
 .img_logo img{

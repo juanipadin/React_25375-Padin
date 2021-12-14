@@ -1,4 +1,5 @@
 import "./NavBar.css";
+import { useCartContext } from '../../context/CartContext';
 
 
 /* COMPONENTS */
@@ -6,6 +7,7 @@ import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () =>{
+    const { totalQuantity } = useCartContext()
     return (
             <nav className="Navigation">
                 <ul className="List-ul">
@@ -13,7 +15,7 @@ const NavBar = () =>{
                     <NavLink activeclassname="active" className="Link" to="/category/Bicicletas">Bicicletas</NavLink>
                     <NavLink activeclassname="active" className="Link" to="/category/Cascos">Cascos</NavLink>
                     <NavLink activeclassname="active" className="Link" to="/category/Cuadros de Bicicleta">Cuadros de Bicicleta</NavLink>
-                    <li><CartWidget /></li>
+                    {totalQuantity() !== 0 && <li><CartWidget /></li>}
                 </ul>
             </nav>
     )

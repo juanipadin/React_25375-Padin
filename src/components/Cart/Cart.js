@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const imageNotAvailable = require('../../assets/img/ImageNotAvailable.png')
 
 const Cart = () => {
-    const { item, addToCart, removeItem, clear, isInCart } = useCartContext()
-    console.log(item)
+    const { item, removeItem, clear ,totalPrice } = useCartContext()
         return (
         <div>
             { item.length === 0
@@ -30,15 +29,18 @@ const Cart = () => {
                 <Table.Body>
                     <Table.Row>
                         <Table.Cell>{item.map(prod => <p><img alt={prod.item.thumbnail} src={(prod.item.thumbnail === "") ? imageNotAvailable : prod.item.thumbnail}/></p>)}</Table.Cell>
-                        <Table.Cell>{item.map(prod => <p key={prod.item.id}> {prod.item.title}</p>)}</Table.Cell>
+                        <Table.Cell>{item.map(prod => <p key={prod.item.id}> {prod.item.title.slice(0,50)}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod =><p>{prod.quantity}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod =><p>AR$ {prod.item.price * prod.quantity}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod => <p><Button onClick={() => removeItem(prod.item.id)}>Borrar Item</Button></p>)}</Table.Cell>
                     </Table.Row>
                 </Table.Body>
+                <div><p>Su compra fue por un total de AR$ {totalPrice()}</p></div>
                 <Button primary onClick={() => clear()}>Borrar todos los Productos</Button>
                 <Link to='/'><Button primary>Continuar Comprando</Button></Link>
-              </Table>
+            </Table>
+
+
               }           
               
         </div>

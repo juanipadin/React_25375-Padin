@@ -7,20 +7,23 @@ export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ({children}) => {
     const [item, setItem] = useState([])
-    //const [quantItems, setQuantItems] = useState(0)
 
     const addToCart = (product, quantity) =>{
-        if (item.lenght !== 0){
-            const index = item.findIndex( prod => {return prod.id === product.id})
-            if (index !== -1 ){
-                const newItem = item;
-                newItem[index].quantity = newItem[index].quantity + quantity;
-                setItem(newItem)
-            } else setItem ([...item, {product, quantity : quantity}]);
-        } else setItem([{product, quantity : quantity}])
-        //setQuantItems(quantItems + quantity)
-        setItem([...item, {item: product, quantity: quantity}])
-    }
+        if (inCart(product)) {
+            const newItem = item;
+            newItem.forEach((cartItem) => {
+                if (cartItem.item.id === product.id) {
+                    cartItem.quantity += quantity;
+                }})
+            setItem(newItem)
+        } else {
+            setItem([...item, {  item: product, quantity: quantity }])
+        }
+    };
+
+    const inCart = (product) => {
+        return item.some((items) => items.item.id === product.id);
+    };
 
     const removeItem = (id) => {
         setItem(item.filter((items)=> items.item.id !== id))
@@ -30,13 +33,16 @@ const CartContextProvider = ({children}) => {
         setItem([])
     }
 
-    const isInCart = (item) => {
-        return item.some((items) => items.id === item.id);
+    const totalQuantity = () => {
+        return item.reduce((total , product) => total + product.quantity, 0)
     }
 
-    console.log(item)
+    const totalPrice = () => {
+        return item.reduce((total, value) => (total + (value.quantity * value.item.price)), 0)
+    }
+
     return (
-        <CartContext.Provider value={ { item, addToCart, removeItem, clear, isInCart } }>
+        <CartContext.Provider value={ { item, addToCart, removeItem, clear, totalQuantity, totalPrice } }>
             {children}
         </CartContext.Provider>
     )

@@ -23,8 +23,8 @@ const ItemDetail = ( {item} ) => {
             <h4>AR$ {Number(item.price).toLocaleString()}</h4>
             <div>
                 {!changeButton && <ItemCount stock={7} initial={0} onAdd={onAdd} changeButton={changeButton}/>}
-                <Link to='/'><Button primary>Continuar Comprando</Button></Link>
-                {changeButton && <Link to='/cart'><Button primary>Finalizar la Compra</Button></Link>}
+                <Link to='/'><Button primary>Continuar mi Compra</Button></Link>
+                {changeButton && <Link to='/cart'><Button primary>Terminar mi Compra</Button></Link>}
             </div>
             
         </div>

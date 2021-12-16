@@ -4,9 +4,7 @@ import ItemListContainer from '../components/ItemListContainer/ItemListContainer
 const Home = () => {
     return (
         <div>
-            <ItemListContainer categoryId={"Bicicletas"}/>
-            <ItemListContainer categoryId={"Cadenas de Bicicletas"}/>
-            <ItemListContainer categoryId={"Cascos de Bicicletas"}/>
+            <ItemListContainer/>
         </div>
     )
 }

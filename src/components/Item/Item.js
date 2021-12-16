@@ -9,7 +9,7 @@ const Item = ({item}) => (
         <Card.Content>
             <Card.Header>AR$ {Number(item.price).toLocaleString()}</Card.Header>
             <Card.Description>
-                <p>{item.title.slice(0,100)}</p>
+                <p>{item.title}</p>
             </Card.Description>
                 <Card.Content extra>
                     <p>Item ID: {item.id}</p>

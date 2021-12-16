@@ -12,7 +12,7 @@ const CartContextProvider = ({children}) => {
         if (inCart(product)) {
             const newItem = item;
             newItem.forEach((cartItem) => {
-                if (cartItem.item.id === product.id) {
+                if (cartItem.id === product.id) {
                     cartItem.quantity += quantity;
                 }})
             setItem(newItem)
@@ -22,11 +22,11 @@ const CartContextProvider = ({children}) => {
     };
 
     const inCart = (product) => {
-        return item.some((items) => items.item.id === product.id);
+        return item.some((items) => items.id === product.id);
     };
 
     const removeItem = (id) => {
-        setItem(item.filter((items)=> items.item.id !== id))
+        setItem(item.filter((items)=> items.id !== id))
     }
 
     const clear = () => {
@@ -38,7 +38,7 @@ const CartContextProvider = ({children}) => {
     }
 
     const totalPrice = () => {
-        return item.reduce((total, value) => (total + (value.quantity * value.item.price)), 0)
+        return item.reduce((total, value) => (total + (value.quantity * value.price)), 0)
     }
 
     return (

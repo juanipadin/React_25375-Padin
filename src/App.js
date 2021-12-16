@@ -13,9 +13,6 @@ import Home from './views/Home';
 import CartContextProvider from './context/CartContext';
 import Cart from './components/Cart/Cart';
 
-
-/* VER EN LA LINEA 25 QUE MANDAR COMO PARÁMETRO */
-
 class App extends Component{
   render() {
     return (

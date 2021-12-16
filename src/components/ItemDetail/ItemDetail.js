@@ -20,7 +20,7 @@ const ItemDetail = ( {item} ) => {
         <div className="ItemDetail">
             <h3>{item.title}</h3>
             <img src= {item.thumbnail} alt="foto de producto"/>
-            <h4>AR$ {Number(item.price).toLocaleString()}</h4>
+            <h4>UD$ {Number(item.price).toLocaleString()}</h4>
             <div>
                 {!changeButton && <ItemCount stock={7} initial={0} onAdd={onAdd} changeButton={changeButton}/>}
                 <Link to='/'><Button primary>Continuar mi Compra</Button></Link>

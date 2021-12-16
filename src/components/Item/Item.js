@@ -7,7 +7,7 @@ const Item = ({item}) => (
     <Card>
         <Image src={item.thumbnail} size="small" centered />
         <Card.Content>
-            <Card.Header>AR$ {Number(item.price).toLocaleString()}</Card.Header>
+            <Card.Header>UD$ {Number(item.price).toLocaleString()}</Card.Header>
             <Card.Description>
                 <p>{item.title}</p>
             </Card.Description>

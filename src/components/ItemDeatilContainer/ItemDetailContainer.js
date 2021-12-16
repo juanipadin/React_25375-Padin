@@ -16,7 +16,6 @@ const ItemDetailContainer = () => {
     const itemDataFiltered = items.filter((data) => {
         return data.id === params.id
     })
-    console.log(itemDataFiltered)
 
     useEffect(() =>{
         const getProducts = async ()=> {

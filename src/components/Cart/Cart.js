@@ -28,14 +28,14 @@ const Cart = () => {
 
                 <Table.Body>
                     <Table.Row>
-                        <Table.Cell>{item.map(prod => <p><img alt={prod.thumbnail} src={(prod.thumbnail === "") ? imageNotAvailable : prod.thumbnail}/></p>)}</Table.Cell>
-                        <Table.Cell>{item.map(prod => <p key={prod.id}> {prod.title}</p>)}</Table.Cell>
+                        <Table.Cell>{item.map(prod => <p><img alt={prod.item.thumbnail} src={(prod.item.thumbnail === "") ? imageNotAvailable : prod.item.thumbnail}/></p>)}</Table.Cell>
+                        <Table.Cell>{item.map(prod => <p key={prod.item.id}> {prod.item.title}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod =><p>{prod.quantity}</p>)}</Table.Cell>
-                        <Table.Cell>{item.map(prod =><p>AR$ {Number(prod.price * prod.quantity).toLocaleString()}</p>)}</Table.Cell>
+                        <Table.Cell>{item.map(prod =><p>AR$ {Number(prod.item.price * prod.quantity).toLocaleString()}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod => <p><Button onClick={() => removeItem(prod.id)}>Borrar Item</Button></p>)}</Table.Cell>
                     </Table.Row>
                 </Table.Body>
-                <div><p>Su compra fue por un total de AR$ {Number(totalPrice().toLocaleString())}</p></div>
+                <div><p>Su compra fue por un total de U$D {Number(totalPrice().toLocaleString())}</p></div>
                 <Button primary onClick={() => clear()}>Borrar todos los Productos</Button>
                 <Link to='/'><Button primary>Continuar Comprando</Button></Link>
             </Table>

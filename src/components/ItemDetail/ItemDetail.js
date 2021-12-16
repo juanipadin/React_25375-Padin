@@ -4,6 +4,7 @@ import './ItemDetail.css'
 import {Link} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
 import { Button } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 
 const ItemDetail = ( {item} ) => {
@@ -17,16 +18,21 @@ const ItemDetail = ( {item} ) => {
     }
 
     return (
-        <div className="ItemDetail">
-            <h3>{item.title}</h3>
-            <img src= {item.thumbnail} alt="foto de producto"/>
-            <h4>UD$ {Number(item.price).toLocaleString()}</h4>
-            <div>
-                {!changeButton && <ItemCount stock={7} initial={0} onAdd={onAdd} changeButton={changeButton}/>}
-                <Link to='/'><Button primary>Continuar mi Compra</Button></Link>
-                {changeButton && <Link to='/cart'><Button primary>Terminar mi Compra</Button></Link>}
-            </div>
-            
+        <div>
+            <Card>
+                <Image src={item.thumbnail} wrapped ui={false} alt="Product Image" />
+                <Card.Content>
+                    <Card.Header>{item.title}</Card.Header>
+                    <Card.Description>
+                        UD$ {Number(item.price).toLocaleString()}
+                    </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                        {!changeButton && <ItemCount stock={7} initial={0} onAdd={onAdd} changeButton={changeButton}/>}
+                        <Link to='/'><Button primary>Continuar mi Compra</Button></Link>
+                        {changeButton && <Link to='/cart'><Button primary>Terminar mi Compra</Button></Link>}
+                </Card.Content>
+        </Card>
         </div>
     )
 }

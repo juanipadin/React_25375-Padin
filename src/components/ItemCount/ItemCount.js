@@ -24,8 +24,8 @@ const ItemCount = ({stock, initial, changeButton, onAdd}) => {
     return (
         <div>
             <p>{counter}</p>
-            <Button primary onClick={sumItem}>Agregar Producto</Button>
-            <Button secondary onClick={removeItem}>Quitar Producto</Button>
+            <Button primary onClick={sumItem}>+</Button>
+            <Button secondary onClick={removeItem}>-</Button>
             { !changeButton && <Button primary onClick={handleOnAdd}>Agregar</Button>}
         </div>
     )

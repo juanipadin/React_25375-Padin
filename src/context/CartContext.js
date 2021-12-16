@@ -7,7 +7,6 @@ export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ({children}) => {
     const [item, setItem] = useState([])
-    console.log(item)
 
     const addToCart = (product, quantity) =>{
         if (inCart(product)) {
@@ -28,7 +27,7 @@ const CartContextProvider = ({children}) => {
     };
 
     const removeItem = (id) => {
-        setItem(item.filter((items)=> items.id !== item.id))
+        setItem(item.filter((items)=> items.item.id !== id))
     }
 
     const clear = () => {

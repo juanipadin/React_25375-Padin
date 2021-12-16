@@ -32,7 +32,7 @@ const Cart = () => {
                         <Table.Cell>{item.map(prod => <p key={prod.item.id}> {prod.item.title}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod =><p>{prod.quantity}</p>)}</Table.Cell>
                         <Table.Cell>{item.map(prod =><p>AR$ {Number(prod.item.price * prod.quantity).toLocaleString()}</p>)}</Table.Cell>
-                        <Table.Cell>{item.map(prod => <p><Button onClick={() => removeItem(prod.id)}>Borrar Item</Button></p>)}</Table.Cell>
+                        <Table.Cell>{item.map(prod => <p><Button onClick={() => removeItem(prod.item.id)}>Borrar Item</Button></p>)}</Table.Cell>
                     </Table.Row>
                 </Table.Body>
                 <div><p>Su compra fue por un total de U$D {Number(totalPrice().toLocaleString())}</p></div>

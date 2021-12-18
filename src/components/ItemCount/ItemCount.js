@@ -25,7 +25,7 @@ const ItemCount = ({stock, initial, changeButton, onAdd}) => {
         <div>
             <p>{counter}</p>
             <Button primary onClick={sumItem}>+</Button>
-            <Button secondary onClick={removeItem}>-</Button>
+            <Button primary onClick={removeItem}>-</Button>
             { !changeButton && <Button primary onClick={handleOnAdd}>Agregar</Button>}
         </div>
     )

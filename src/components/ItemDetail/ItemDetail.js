@@ -3,8 +3,8 @@ import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 import {Link} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
-import { Button } from 'semantic-ui-react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+
+import { Card, Image, Button } from 'semantic-ui-react'
 
 
 const ItemDetail = ( {item} ) => {
@@ -14,7 +14,6 @@ const ItemDetail = ( {item} ) => {
     const onAdd = (quantity) =>{
         addToCart(item, quantity)
         setChangeButton(true)
-        alert(`Ud. Agregó a su Carrito la cantidad de ${quantity} productos`)
     }
 
     return (
@@ -30,7 +29,7 @@ const ItemDetail = ( {item} ) => {
                 <Card.Content extra>
                         {!changeButton && <ItemCount stock={7} initial={0} onAdd={onAdd} changeButton={changeButton}/>}
                         <Link to='/'><Button primary>Continuar mi Compra</Button></Link>
-                        {changeButton && <Link to='/cart'><Button primary>Terminar mi Compra</Button></Link>}
+                        {changeButton && <Link to='/cart'><Button primary>Ir a mi Carrito</Button></Link>}
                 </Card.Content>
         </Card>
         </div>

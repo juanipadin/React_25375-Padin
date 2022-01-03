@@ -1,15 +1,14 @@
 import React from 'react'
 import './CartWidget.css'
 import { useCartContext } from '../../context/CartContext';
+import { Icon } from 'semantic-ui-react'
 
 function CartWidget() {
     const { totalQuantity } = useCartContext()
     return (
             <div>
-                <img className="img_carrito" 
-            src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-campus-recreation-university-nebraska-lincoln-30.png" 
-            alt="Imagen Carrito"></img>
-                <p>{totalQuantity()}</p>
+                <Icon name='cart' size='big' color="black" className="cartIcon"/>
+                <p className="totalQuantity">{totalQuantity()}</p>
                 </div>
     )
 }

@@ -17,9 +17,9 @@ const ItemDetail = ( {item} ) => {
     }
 
     return (
-        <div>
+        <div className="mx-auto">
             <Card>
-                <Image src={item.thumbnail} wrapped ui={false} alt="Product Image" />
+                <Image className="mx-auto" src={item.thumbnail} wrapped ui={false} alt="Product Image" />
                 <Card.Content>
                     <Card.Header>{item.title}</Card.Header>
                     <Card.Description>
@@ -27,8 +27,8 @@ const ItemDetail = ( {item} ) => {
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                        {!changeButton && <ItemCount stock={7} initial={0} onAdd={onAdd} changeButton={changeButton}/>}
-                        <Link to='/'><Button primary>Continuar mi Compra</Button></Link>
+                        {!changeButton && <ItemCount stock={item.stock} initial={1} onAdd={onAdd} changeButton={changeButton}/>}
+                        <Link to='/'><button type= "button" className="btn btn-success">Continuar mi Compra</button></Link>
                         {changeButton && <Link to='/cart'><Button primary>Ir a mi Carrito</Button></Link>}
                 </Card.Content>
         </Card>

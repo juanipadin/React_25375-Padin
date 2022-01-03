@@ -13,6 +13,7 @@ import Home from './views/Home';
 import CartContextProvider from './context/CartContext';
 import Cart from './components/Cart/Cart';
 import Form from './components/Form/Form'
+import Footer from './components/Footer/Footer';
 
 class App extends Component{
   render() {
@@ -28,11 +29,9 @@ class App extends Component{
                 <Route path="/cart" element={<Cart/>}/>
                 <Route path="/form" element={<Form/>}/>
                 </Routes>
+      <Footer/>
         </Router>
       </CartContextProvider>
-
-        
-        
       </div>
     )
   }

@@ -1,7 +1,14 @@
 .Item{
     width: 200px;
-    height: 200px;
+    height: 300px;
     border: 1px grey solid;
-    margin: 0px 20px;
+    margin: 40px 20px 50px;
     padding: 20px;
+
+}
+
+.image{
+    width: 150px;
+    height: auto;
+
 }

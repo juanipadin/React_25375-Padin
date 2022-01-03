@@ -6,6 +6,7 @@ import { useCartContext } from '../../context/CartContext';
 import { db } from '../../firebase/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 
+import './Form.css'
 
 const initialState = {
     name : '',
@@ -36,15 +37,23 @@ const Form = () => {
         setBuyers(initialState)
     }
 
-
     return (
-        <div>
+        <div className="mx-auto">
             <form onSubmit={onSubmitHandler}>
+                <label for="exampleInputEmail1">Nombre Completo</label>
                 <Input placeholder='Nombre' name="name" value={buyers.name} onChange={onChangeHandler}/>
+                <label for="exampleInputEmail1">Telefono</label>
                 <Input placeholder='Telefono' name="phone" value={buyers.phone} onChange={onChangeHandler}/>
+                <label for="exampleInputEmail1">E-Mail</label>
                 <Input placeholder='E-Mail' name="email" value={buyers.email} onChange={onChangeHandler}/>
+                <label for="exampleInputEmail1">Vuelva a Introducir su E-Mail</label>
+                <Input placeholder='E-Mail' name="emailValidation" value={buyers.emailValidation} onChange={
+                    console.log(buyers.emailValidation)
+                }/>
+                
                 <Button>Enviar</Button>
             </form>
+
             <p></p>
             {(purchaseId && (
                 <div> Su compra quedó registrada bajo el ID: {purchaseId} </div>

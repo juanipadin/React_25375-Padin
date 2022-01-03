@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Button } from 'semantic-ui-react'
 
 const ItemCount = ({stock, initial, changeButton, onAdd}) => {
 
@@ -24,9 +23,9 @@ const ItemCount = ({stock, initial, changeButton, onAdd}) => {
     return (
         <div>
             <p>{counter}</p>
-            <Button primary onClick={sumItem}>+</Button>
-            <Button primary onClick={removeItem}>-</Button>
-            { !changeButton && <Button primary onClick={handleOnAdd}>Agregar</Button>}
+            <button type="button" className="btn btn-primary btn-sm" onClick={removeItem}>-</button>
+            <button type="button" className="btn btn-primary btn-sm" onClick={sumItem}>+</button>
+            { !changeButton && <button type="button" className="btn btn-info btn-sm" onClick={handleOnAdd}>Agregar</button>}
         </div>
     )
 }

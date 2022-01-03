@@ -1,5 +1,8 @@
 import React, { useEffect , useState} from 'react'
 import { useParams } from 'react-router-dom';
+import { Dimmer, Loader } from 'semantic-ui-react'
+
+import './ItemDetailContainer.css'
 
 /* FIREBASE */
 import { db } from '../../firebase/firebaseConfig';
@@ -30,8 +33,16 @@ const ItemDetailContainer = () => {
         getProducts()
     },[])
     return (
-            <div>
-                {isLoading ? <h2>Cargando...</h2> : itemDataFiltered.map((data) => {
+            <div className='cardContent'>
+                {isLoading
+                ?
+                <div className="loading">
+                        <Dimmer active inverted>
+                            <Loader size='massive'>Cargando...</Loader>
+                        </Dimmer>
+                </div> 
+                :
+                itemDataFiltered.map((data) => {
                     return <ItemDetail item={data} key={data.id}/>
                 })}
             </div>

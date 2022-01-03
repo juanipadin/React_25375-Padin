@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList/ItemList';
+import { Dimmer, Loader } from 'semantic-ui-react'
 
 /* FIREBASE */
 import { db } from '../../firebase/firebaseConfig';
@@ -39,7 +40,15 @@ const ItemListContainer = () => {
 
     return (
         <div>
-            {isLoading ? <h2>Cargando...</h2> :<div><ItemList items={items}/></div>}
+            {isLoading
+            ?
+            <div>
+                <Dimmer active inverted>
+                    <Loader size='massive'>Cargando...</Loader>
+                </Dimmer>
+            </div> 
+            :
+            <div><ItemList items={items}/></div>}
         </div>
     )
 }

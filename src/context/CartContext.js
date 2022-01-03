@@ -9,15 +9,18 @@ const CartContextProvider = ({children}) => {
     const [item, setItem] = useState([])
 
     const addToCart = (product, quantity) =>{
-        if (inCart(product)) {
-            const newItem = item;
-            newItem.forEach((cartItem) => {
-                if (cartItem.item.id === product.id) {
-                    cartItem.quantity += quantity;
-                }})
-            setItem(newItem)
-        } else {
-            setItem([...item, {  item: product, quantity: quantity }])
+        if (quantity !== 0){
+
+            if (inCart(product)) {
+                const newItem = item;
+                newItem.forEach((cartItem) => {
+                    if (cartItem.item.id === product.id) {
+                        cartItem.quantity += quantity;
+                    }})
+                setItem(newItem)
+            } else {
+                setItem([...item, {  item: product, quantity: quantity }])
+            }
         }
     };
 
@@ -35,11 +38,11 @@ const CartContextProvider = ({children}) => {
     }
 
     const totalQuantity = () => {
-        return item.reduce((total , product) => total + product.quantity, 0)
+        return item.reduce((total , product) => total = total + product.quantity, 0)
     }
 
     const totalPrice = () => {
-        return item.reduce((total, value) => (total + (value.quantity * value.item.price)), 0)
+        return item.reduce((total , product) => (total + product.quantity * product.item.price), 0)
     }
 
     return (

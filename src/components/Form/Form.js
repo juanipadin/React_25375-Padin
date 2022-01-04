@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Input, Button } from 'semantic-ui-react'
 import { useCartContext } from '../../context/CartContext';
 
 /* FIREBASE */
@@ -11,7 +10,8 @@ import './Form.css'
 const initialState = {
     name : '',
     phone : '',
-    email : ''
+    email : '',
+    validation : '',
 }
 
 const Form = () => {
@@ -19,44 +19,48 @@ const Form = () => {
 
     const [buyers, setBuyers] = useState(initialState);
     const [purchaseId, setPurchaseId] = useState('');
+    const [validation, setValidation] = useState(true)
 
     const onChangeHandler = (e) => {
         const {name, value} = e.target;
         setBuyers({...buyers, [name]:value})
     };
-
+    
     const onSubmitHandler = async (e) => {
         e.preventDefault()
+        
+        if (buyers.validation !== buyers.email){
+            return (setValidation(false), setBuyers(initialState))
+            }
 
         const precioFinal = totalPrice()
         const date = new Date().toLocaleString()
-
+        
         const docRef = await addDoc(collection(db, 'clients'),{ buyers ,  item , date, precioFinal })
-
+        
         setPurchaseId(docRef.id);
         setBuyers(initialState)
     }
 
     return (
-        <div className="mx-auto">
+        <div>
             <form onSubmit={onSubmitHandler}>
-                <label for="exampleInputEmail1">Nombre Completo</label>
-                <Input placeholder='Nombre' name="name" value={buyers.name} onChange={onChangeHandler}/>
-                <label for="exampleInputEmail1">Telefono</label>
-                <Input placeholder='Telefono' name="phone" value={buyers.phone} onChange={onChangeHandler}/>
-                <label for="exampleInputEmail1">E-Mail</label>
-                <Input placeholder='E-Mail' name="email" value={buyers.email} onChange={onChangeHandler}/>
-                <label for="exampleInputEmail1">Vuelva a Introducir su E-Mail</label>
-                <Input placeholder='E-Mail' name="emailValidation" value={buyers.emailValidation} onChange={
-                    console.log(buyers.emailValidation)
-                }/>
-                
-                <Button>Enviar</Button>
+                <div class="form-group">
+                <label>Nombre Completo</label>
+                <input className="form-control" placeholder='Nombre' name="name" value={buyers.name} onChange={onChangeHandler}/>
+                <label>Telefono</label>
+                <input className="form-control" placeholder='Telefono' name="phone" value={buyers.phone} onChange={onChangeHandler}/>
+                <label>Correo Electrónico</label>
+                <input className="form-control" placeholder='Correo' name="email" value={buyers.email} onChange={onChangeHandler}/>
+                <label>Vuelva a Introducir su Correo Electrónico</label>
+                <input className="form-control" placeholder='Correo' name="validation" value={buyers.validation} onChange={onChangeHandler}/>
+                {!validation && <div class="p-3 mb-2 bg-warning text-dark">Sus correos no coinciden, por favor vuelva a intentarlo</div> }
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
             </form>
 
-            <p></p>
             {(purchaseId && (
-                <div> Su compra quedó registrada bajo el ID: {purchaseId} </div>
+                <div class="p-3 mb-2 bg-success text-white"> Su compra quedó registrada bajo el ID: {purchaseId} </div>
             ))}
         </div>
     )

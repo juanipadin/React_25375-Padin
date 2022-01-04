@@ -7,6 +7,7 @@ export const useCartContext = () => useContext(CartContext)
 
 const CartContextProvider = ({children}) => {
     const [item, setItem] = useState([])
+    const [totalItems, setTotalItems] = useState(0)
 
     const addToCart = (product, quantity) =>{
         if (quantity !== 0){
@@ -21,6 +22,7 @@ const CartContextProvider = ({children}) => {
             } else {
                 setItem([...item, {  item: product, quantity: quantity }])
             }
+            setTotalItems(totalItems + quantity)
         }
     };
 
@@ -38,7 +40,7 @@ const CartContextProvider = ({children}) => {
     }
 
     const totalQuantity = () => {
-        return item.reduce((total , product) => total = total + product.quantity, 0)
+        return item.reduce((total , product) => total = total += product.quantity, 0)
     }
 
     const totalPrice = () => {

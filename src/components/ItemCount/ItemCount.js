@@ -10,7 +10,7 @@ const ItemCount = ({stock, initial, changeButton, onAdd}) => {
         }
     }
     const removeItem = ()=>{
-        if (counter > 0){
+        if (counter > 1){
             setCounter(counter - 1)
         }
     }

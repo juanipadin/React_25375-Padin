@@ -7,7 +7,7 @@ const imageNotAvailable = require('../../assets/img/ImageNotAvailable.png')
 
 
 const Cart = () => {
-    const { item, removeItem, clear ,totalPrice } = useCartContext()
+    const { item, removeItem, clear ,totalPrice, totalQuantity } = useCartContext()
         return (
         <div>
             { item.length === 0
@@ -42,7 +42,7 @@ const Cart = () => {
                     </Table.Body>
                 </Table>
             
-                <p className="h3"><strong>Ud. seleccionó productos por un total de U$D {totalPrice()}</strong></p>
+                <p className="h3"><strong>Ud. seleccionó {totalQuantity()} productos por un total de U$D {totalPrice()}</strong></p>
                 <Button primary onClick={() => clear()}>Borrar todos los Productos</Button>
                 <Link to='/'><Button primary>Continuar Comprando</Button></Link>
                 <Link to='/form'><Button primary>Finalizar Compra</Button></Link>

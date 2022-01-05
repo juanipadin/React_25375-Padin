@@ -47,13 +47,13 @@ const Form = () => {
             <form onSubmit={onSubmitHandler}>
                 <div class="form-group">
                 <label>Nombre Completo</label>
-                <input className="form-control" placeholder='Nombre' name="name" value={buyers.name} onChange={onChangeHandler}/>
+                <input className="form-control" placeholder='Nombre' name="name" required value={buyers.name} onChange={onChangeHandler}/>
                 <label>Telefono</label>
-                <input className="form-control" placeholder='Telefono' name="phone" value={buyers.phone} onChange={onChangeHandler}/>
+                <input className="form-control" placeholder='Telefono' name="phone" type="number" required value={buyers.phone} onChange={onChangeHandler}/>
                 <label>Correo Electrónico</label>
-                <input className="form-control" placeholder='Correo' name="email" value={buyers.email} onChange={onChangeHandler}/>
+                <input className="form-control" placeholder='Correo' name="email" type="email" required value={buyers.email} onChange={onChangeHandler}/>
                 <label>Vuelva a Introducir su Correo Electrónico</label>
-                <input className="form-control" placeholder='Correo' name="validation" value={buyers.validation} onChange={onChangeHandler}/>
+                <input className="form-control" placeholder='Correo' name="validation" type="email" required value={buyers.validation} onChange={onChangeHandler}/>
                 {!validation && <div class="p-3 mb-2 bg-warning text-dark">Sus correos no coinciden, por favor vuelva a intentarlo</div> }
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>

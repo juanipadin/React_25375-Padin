@@ -31,4 +31,4 @@ A los fines de evitar la duplicidad de comandos y con el objetivo de simplificar
 
 
 
-![Alt Text](<img src="." width="40" height="40" />)
+![Alt Text](<img src="https://github.com/juanipadin/React_25375-Padin/blob/main/src/assets/img/2Bike-or-not-2Bike-5-January-2022.gif" width="100" height="100" />)
